@@ -11,7 +11,14 @@ $listeUtilisateur = '';
     <title>Document</title>
 </head>
 <body>
-    <header></header>
+    <?php
+        class ViewHeader {
+            public function render() {
+            return "<header><h1>Mon Site Web</h1></header>";
+            }
+        }
+    ?>
+
     <main>
         <h1>Liste des utilisateurs</h1>
         <ul>
@@ -23,6 +30,12 @@ $listeUtilisateur = '';
             ?>
         </ul>
     </main>
-    <footer></footer>
+    <?php
+        class ViewFooter {
+            public function render() {
+            return "<footer><p>&copy; 2026 - Mon Site</p></footer>";
+        }
+    }
+    ?>
 </body>
 </html>

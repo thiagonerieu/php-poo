@@ -1,0 +1,31 @@
+<html lang="fr">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>page2</title>
+</head>
+<body>
+ <p><a href="index.php">Home</a></p>
+ <p><a href="page1.php">Page1</a></p>
+ <p><a href="deco.php">Déconnexion</a></p>
+</body>
+</html>
+<?php
+ //démarrage de la session (à utiliser sur toutes les pages)
+ session_start();
+
+ //création super globale $_SESSION['page1']
+ $_SESSION['page2'];
+
+ //affichage du contenu de la super globale $_SESSION['name']
+ echo ''.$_SESSION['name'].' est connecté';
+ 
+ //test si on à parcouru la page page1.php
+ if(isset($_SESSION['page1'])){
+ echo '<p>Nous avons visité la page1.php</p>';
+ }
+ if(isset($_SESSION['page2'])){
+ echo '<p>Nous avons visité la page2.php</p>';
+ }
+?>
