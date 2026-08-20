@@ -1,13 +1,19 @@
 <?php
 // Inclusion de la classe Vehicule
-require_once 'vehicule.php';
+include('./vehicule.php');
 
-// Instanciation des vehicules avec des valeurs pré-définis.
-$maVoiture = new Vehicule($nomVehicule = "Mercedes CLK", $nbrRoue = 4, $vitesse = 250);
-$maMoto = new Vehicule($nomVehicule = "Honda CBR", $nbrRoue = 2, $vitesse = 280);
+// Création de 2 objets.
+$voiture = new Vehicule("Mercedes CLK", 4, 250);
+$moto = new Vehicule("Honda CBR", 2, 280);
 
 // Appel de la méthode qui détecte le type de vehicule.
-$maVoiture->detect($nbrRoue);
-$maMoto->detect($nbrRoue);
+echo("Ce véhicule est : ".$voiture->detect()."</p>");
+echo("Ce véhicule est : ".$moto->detect()."</p>");
 
-echo "<p>Le vehicule est une " . $this->detect($nbrRoue) . " .</p>";
+// Appel de la méthode boost() de la voiture, et affichage de la nouvelle vitesse.
+$voiture->boost();
+echo("<p>La nouvelle vitesse de la voiture est de : ".$voiture->getVitesse(). " km/h.</p>");
+
+//
+$lePlusRapide = $voiture->plusRapide($moto);
+echo("<p>Le Véhicule le plus rapide est : ".$lePlusRapide->getNom()."</p>");

@@ -5,23 +5,48 @@ class Vehicule {
     private int $nbrRoue;
     private float $vitesse;
 
-    public function __construct(string $nomVehicule, int $nbrRoue, float $vitesse) {
-        $this->nomVehicule = $nomVehicule;
+    //CONSTRUCTEUR
+    public function __construct(string $nom, $nbrRoue, float $vitesse) {
+        $this->nomVehicule = $nom;
         $this->nbrRoue = $nbrRoue;
         $this->vitesse = $vitesse;
     }
 
-    public function detect(): void {
-        if $nbrRoue <= 2{
-            return string moto;
-        }else{
-            return string voiture;
+    //GETTER
+    public function getVitesse(): float{
+        return $this->vitesse;
+    }
+
+    public function getNom(): string{
+        return $this->nomVehicule;
+    }
+
+    //METHODS
+    public function demarer():void{
+        echo "<p>".$this->nomVehicule." démarre</p>";
+    }
+
+    public function detect():string {
+        switch($this->nbrRoue){
+            case 4 :
+                return "voiture";
+            case 2 : 
+                return "moto";
         }
     }
 
-    public function demarer(): void {
-        
+    public function boost():void {
+        $this->vitesse += 50;
+    }
+
+    public function plusRapide(Vehicule $vehicule):Vehicule | array{
+        if($this->vitesse > $vehicule->vitesse){
+            return $this;
+        }else if($this->vitesse < $vehicule->vitesse){
+            return $vehicule;
+        }else{
+            return [$this, $vehicule];
+        }
     }
 }
-
 ?>
